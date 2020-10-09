@@ -38,5 +38,39 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="/assets/js/index.js"></script>
 </body>
+<script type="text/javascript">
+
+  // In this code, jQuery is used to "download" the data from our server
+  function runNoteData() {
+    
+    $.ajax({ url: "/api/notes", method: "GET" })
+      .then(function (note) {
+
+        // Here we then log the noteData to console, where it will show up as an object.
+        console.log(note);
+
+        // Loop through and list notes
+        for (var i = 0; i < note.length; i++) {
+
+          var noteList = $(".list-group");
+          var listItem = $("<li class='list-group-item'>");
+
+          listItem.append(
+            $("<p>").text(note[i].title),
+          );
+
+          noteList.append(listItem);
+
+        };   
+
+      });
+  }
+
+
+  // Run Queries!
+  // ==========================================
+  runNoteData();
+
+</script>
 
 </html>
