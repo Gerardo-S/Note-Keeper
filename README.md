@@ -6,4 +6,14 @@ This application provides an easy method of taking notes. App retrieves note dat
 * `*` - Will return the user to home page id no route is specified.
 * `/api/notes` - Reads the `db.json` file and returns all saved notes as JSON. Path also receives new notes saved an updated JSON stored data.
 
+## Video Demonstration
+
+### Saving Notes
+<img src="public\assets\images\SaveNotes.gif" alt="gif of readme generator">
+
+### API stored notes
+<img src="public\assets\images\SavedJsonNote.gif" alt="gif of readme generator">
+
+### Issues/Improvement Suggestions
+Currently note taker will delete a note when user clicks on trash icon; however, note is not removed until user visits api/routs. Each note is given an id using the index of stored data future development will allow for unwanted notes to be removed. 
 
