@@ -13,8 +13,15 @@ module.exports = function (app) {
   // This code will retrieve new note and post to data file
   app.post("/api/notes", (req, res) => {
     let newNote = req.body;
+    // newNote.id =noteData.indexOf(newNote);
+    // console.log(newNote.id);
+    // console.log("newNote data " + newNote.id);
     noteData.push(newNote);
     res.json(noteData);
+    // console.log(noteData.indexOf(newNote));
+    let index = noteData.indexOf(newNote);
+    newNote.id = JSON.stringify(index + 1);
+    console.log(newNote.id);
     console.log("New note: " + newNote.title)
   });
 
@@ -22,6 +29,7 @@ module.exports = function (app) {
   // Established route to specified note by id 
   app.get("/api/notes/:id", function(req,res){
     const id = req.params.id;
+    console.log(id);
     res.json(noteData[id])
   });
 
@@ -30,6 +38,7 @@ module.exports = function (app) {
   app.delete("/api/notes/:id", function (req,res) {
     noteData.splice(req.params.id, 1);
     updateDb();
+    console.log("Deleted note with id " + req.params.id);
 
   })
 
@@ -41,8 +50,8 @@ module.exports = function (app) {
         console.log(err)
         return console.log(err);
       }
-      console.log("successfully updated notes!")
+      return true;
     })
   };
-
+  
 };
