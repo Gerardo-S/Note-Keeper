@@ -3,7 +3,7 @@ const noteData = require("../db/db");
 
 module.exports = function (app) {
 
-  // This code will display all notes saved to db.json file
+  // Api  notes route established and data presented in jSON format
   app.get("/api/notes", (req, res) => {
     res.json(noteData);
   });
@@ -17,5 +17,19 @@ module.exports = function (app) {
     console.log("New note: " + newNote.title)
   });
 
+
+  // Established route to specified note by id 
+  app.get("/api/notes/:id", function(req,res){
+    const id = req.params.id;
+    res.json(noteData[id])
+  });
+
+  
+  // Delete note
+  app.delete("/api/notes/:id", function (req,res) {
+    noteData.splice(req.params.id, 1);
+    
+    
+  })
 
 };
