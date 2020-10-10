@@ -1,5 +1,6 @@
 // noteData links to data json file
 const noteData = require("../db/db");
+const fs = require("fs");
 
 module.exports = function (app) {
 
@@ -28,8 +29,20 @@ module.exports = function (app) {
   // Delete note
   app.delete("/api/notes/:id", function (req,res) {
     noteData.splice(req.params.id, 1);
-    
-    
+    updateDb();
+
   })
+
+  function updateDb(){
+    // Updates JSON text 
+    fs.writeFile("db/db.json", JSON.stringify(noteData), err =>{
+      if (err) {
+        // stop execution if there is an error
+        console.log(err)
+        return console.log(err);
+      }
+      console.log("successfully updated notes!")
+    })
+  };
 
 };
