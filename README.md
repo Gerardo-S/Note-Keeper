@@ -17,3 +17,7 @@ This application provides an easy method of taking notes. App retrieves note dat
 ### Issues/Improvement Suggestions
 Currently note taker will delete a note when user clicks on trash icon; however, note is not removed until user visits api/routs. Each note is given an id using the index of stored data future development will allow for unwanted notes to be removed. 
 
+Link to Github Repo:
+<a href="https://github.com/Gerardo-S/note-keeper">https://github.com/Gerardo-S/note-keeper</a><br>
+Link to deployed app on Heroku:<br>
+<a href="https://obscure-beyond-61702.herokuapp.com/">https://obscure-beyond-61702.herokuapp.com/</a>
