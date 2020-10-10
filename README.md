@@ -6,5 +6,4 @@ This application provides an easy method of taking notes. App retrieves note dat
 * `*` - Will return the user to home page id no route is specified.
 * `/api/notes` - Reads the `db.json` file and returns all saved notes as JSON. Path also receives new notes saved an updated JSON stored data.
 
-## Demonstration
 
