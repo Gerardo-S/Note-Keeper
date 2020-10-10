@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/flatly/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="./public/assets/css/styles.css">
 </head>
 
 <body>
@@ -38,39 +38,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="/assets/js/index.js"></script>
 </body>
-<script type="text/javascript">
-
-  // In this code, jQuery is used to "download" the data from our server
-  function runNoteData() {
-    
-    $.ajax({ url: "/api/notes", method: "GET" })
-      .then(function (note) {
-
-        // Here we then log the noteData to console, where it will show up as an object.
-        console.log(note);
-
-        // Loop through and list notes
-        for (var i = 0; i < note.length; i++) {
-
-          var noteList = $(".list-group");
-          var listItem = $("<li class='list-group-item'>");
-
-          listItem.append(
-            $("<p>").text(note[i].title),
-          );
-
-          noteList.append(listItem);
-
-        };   
-
-      });
-  }
-
-
-  // Run Queries!
-  // ==========================================
-  runNoteData();
-
-</script>
 
 </html>
